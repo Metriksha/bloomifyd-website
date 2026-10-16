@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Personalized Bloomifyd gifts, acrylic photo frames, Spotify plaques, LED frames and custom keepsakes."
+    >
+
+    <title>Bloomifyd | Product Details</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="image/favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+<style>
+.photo-preview-section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ead9e2;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #fffafc, #f7eff7);
+    text-align: center;
+}
+
+.photo-preview-section[hidden] {
+    display: none;
+}
+
+.preview-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    color: #5f4b8b;
+    margin: 0 0 18px;
+}
+
+.preview-stage {
+    display: flex;
+    justify-content: center;
+    padding: 14px;
+    perspective: 900px;
+}
+
+.preview-frame {
+    width: min(100%, 270px);
+    aspect-ratio: 4 / 5;
+    padding: 10px;
+    background: linear-gradient(135deg, #fff, #e9d9e0, #fff);
+    border: 1px solid #d6c0cc;
+    border-radius: 5px;
+    box-shadow: 0 12px 30px rgba(95, 75, 139, 0.18);
+    animation: revealGift 700ms ease both;
+    transition: transform 400ms ease, box-shadow 400ms ease;
+}
+
+.preview-frame:hover {
+    transform: rotateY(-4deg) rotateX(2deg) translateY(-3px);
+    box-shadow: 0 18px 35px rgba(95, 75, 139, 0.25);
+}
+
+.preview-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.preview-caption {
+    color: #6b5874;
+    font-size: 13px;
+    margin: 8px 0 14px;
+}
+
+.remove-photo-btn {
+    border: 1px solid #c98ba0;
+    border-radius: 25px;
+    padding: 10px 17px;
+    background: white;
+    color: #80516c;
+    cursor: pointer;
+}
+
+.photo-upload-note {
+    color: #756675;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+@keyframes revealGift {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .preview-frame {
+        animation: none;
+        transition: none;
+    }
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+
+<nav>
+    <a href="index.html" class="logo">
+        <img src="image/logo.png" alt="Bloomifyd Logo">
+        Bloomifyd
+    </a>
+
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+            <a href="cart.html" class="cart-link">
+                🛒 Cart <span id="cart-count">0</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- =========================
+     PRODUCT SECTION
+========================= -->
+
+<section class="product-page">
+
+
+    <!-- PRODUCT IMAGES -->
+
+    <div class="product-gallery">
+
+        <div class="product-main-image">
+
+            <img
+                id="mainImage"
+                class="main-image"
+                src=""
+                alt="Bloomifyd Product"
+            >
+
+        </div>
+
+
+        <div
+            id="thumbnailRow"
+            class="thumbnail-row"
+        ></div>
+
+    </div>
+
+
+
+    <!-- PRODUCT INFORMATION -->
+
+    <div class="product-info">
+
+
+        <span class="product-type">
+            Personalized Gift
+        </span>
+
+
+        <h1 id="productTitle">
+            Loading...
+        </h1>
+
+
+        <p
+            id="productDesc"
+            class="product-description"
+        >
+            Loading product details...
+        </p>
+
+
+        <div class="rating">
+            ★★★★★ 4.9 Rating
+        </div>
+
+
+        <div
+            class="price"
+            id="productPrice"
+        >
+            ₹0
+        </div>
+
+
+        <!-- PRODUCT HIGHLIGHTS -->
+
+        <div class="product-features">
+
+            <div>
+                🚚 Delivery in 3–5 Business Days
+            </div>
+
+            <div>
+                🎁 Gift Ready Packaging
+            </div>
+
+            <div>
+                🛡 Premium UV Printed Finish
+            </div>
+
+            <div>
+                💖 Handmade With Love
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT OPTIONS -->
+
+        <div
+            id="productOptions"
+            class="product-options"
+        >
+
+            <div id="sizeContainer"></div>
+
+            <div id="secondOptionContainer"></div>
+
+        </div>
+
+
+        <!-- CUSTOMIZATION FORM -->
+
+        <form
+            class="custom-form"
+            id="customForm"
+        >
+
+           
+
+<label for="productPhoto">
+    Personalize With Your Photo
+</label>
+
+<input
+    type="file"
+    id="productPhoto"
+    accept="image/jpeg,image/png,image/webp"
+>
+
+<div id="photoPreviewSection" class="photo-preview-section" hidden>
+    <p class="preview-heading">Your Memory, Your Gift ✨</p>
+
+    <div class="preview-stage">
+        <div class="preview-frame">
+            <img id="photoPreviewImage" src="" alt="Your personalized gift preview">
+        </div>
+    </div>
+
+    <p class="preview-caption">
+        Your personalized preview
+    </p>
+
+    <button type="button" id="removePhotoBtn" class="remove-photo-btn">
+        Choose Another Photo
+    </button>
+</div>
+
+<p class="photo-upload-note">
+    Preview your photo on screen, then send the original image
+    through WhatsApp when confirming your order.
+</p>
+
+
+<!-- <input
+    type="file"
+    id="productPhoto"
+    accept="image/*"
+>
+
+<p class="photo-upload-note">
+    Your photo is not uploaded to our server yet.
+    After placing your order, please send the original
+    photo through WhatsApp.
+</p> -->
+
+
+
+            <label for="customText">
+                Custom Text
+            </label>
+
+            <input
+                type="text"
+                id="customText"
+                placeholder="Enter your message"
+                maxlength="100"
+            >
+
+
+            <label for="quantity">
+                Quantity
+            </label>
+
+            <input
+                type="number"
+                id="quantity"
+                value="1"
+                min="1"
+                max="20"
+            >
+
+        </form>
+
+
+        <!-- ACTIONS -->
+
+        <div class="product-actions">
+
+            <button
+                id="addToCartBtn"
+                class="btn-primary"
+                type="button"
+            >
+                🛒 Add to Cart
+            </button>
+
+
+            <a
+                id="whatsappBtn"
+                href="#"
+                class="btn-secondary"
+                target="_blank"
+                rel="noopener"
+            >
+                Buy Now →
+            </a>
+
+        </div>
+
+
+        <!-- CART MESSAGE -->
+
+        <p
+            id="cartMessage"
+            style="
+                margin-top:15px;
+                color:#b85c7a;
+                font-weight:600;
+            "
+        ></p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        Bloomifyd
+    </div>
+
+
+    <p>
+        Personalized Gifts • Made With Love
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="https://instagram.com/bloomifyd">
+            Instagram
+        </a>
+
+        <a href="https://wa.me/916376478530">
+            WhatsApp
+        </a>
+
+        <a href="mailto:info@bloomifyd.com">
+            Email
+        </a>
+
+    </div>
+
+
+    <p class="copyright">
+        © 2026 Bloomifyd. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   PRODUCT DATA
+========================= */
+
+const products = {
+
+    1: {
+
+        title: "Acrylic Photo Frame",
+
+        desc:
+            "Capture your favourite memories in premium acrylic.",
+
+        images: [
+            "image/product1.jpeg",
+            "image/product1-2.jpeg",
+            "image/product1-3.jpeg"
+        ],
+
+        options: {
+
+            Size: [
+                "6x8",
+                "11x11",
+                "12x9",
+                "12x18",
+                "15x16",
+                "35x23",
+                "48x36"
+            ],
+
+            Thickness: [
+                "3 mm",
+                "8 mm"
+            ]
+
+        },
+
+        prices: {
+
+            "6x8|3 mm": 499,
+            "6x8|8 mm": 699,
+
+            "11x11|3 mm": 799,
+            "11x11|8 mm": 999,
+
+            "12x9|3 mm": 699,
+            "12x9|8 mm": 899,
+
+            "12x18|3 mm": 1199,
+            "12x18|8 mm": 1499,
+
+            "15x16|3 mm": 1799,
+            "15x16|8 mm": 2199,
+
+            "35x23|3 mm": 3999,
+            "35x23|8 mm": 4999,
+
+            "48x36|3 mm": 6999,
+            "48x36|8 mm": 8499
+
+        }
+
+    },
+
+
+    2: {
+
+        title: "Spotify Plaque",
+
+        desc:
+            "Turn your favourite song into a timeless keepsake.",
+
+        images: [
+            "image/product2.jpeg",
+            "image/product2-2.jpeg",
+            "image/product2-3.jpeg"
+        ],
+
+        options: {
+
+            Size: [
+                "6x6",
+                "8x10",
+                "10x12",
+                "12x16"
+            ],
+
+            Base: [
+                "Wooden",
+                "Acrylic"
+            ]
+
+        },
+
+        prices: {
+
+            "6x6|Wooden": 1199,
+            "6x6|Acrylic": 1199,
+
+            "8x10|Wooden": 1499,
+            "8x10|Acrylic": 1499,
+
+            "10x12|Wooden": 1799,
+            "10x12|Acrylic": 1799,
+
+            "12x16|Wooden": 2299,
+            "12x16|Acrylic": 2299
+
+        }
+
+    },
+
+
+    3: {
+
+        title: "LED Frame",
+
+        desc:
+            "Light up your favourite memories.",
+
+        images: [
+            "image/product3.jpeg",
+            "image/product3-2.jpeg",
+            "image/product3-3.jpeg"
+        ],
+
+        options: {
+
+            Size: [
+                "6x8",
+                "8x10",
+                "10x12"
+            ],
+
+            Light: [
+                "Warm",
+                "RGB",
+                "Acrylic Base"
+            ]
+
+        },
+
+        prices: {
+
+            "6x8|Warm": 1299,
+            "6x8|RGB": 1499,
+            "6x8|Acrylic Base": 1599,
+
+            "8x10|Warm": 1599,
+            "8x10|RGB": 1799,
+            "8x10|Acrylic Base": 1899,
+
+            "10x12|Warm": 1899,
+            "10x12|RGB": 2199,
+            "10x12|Acrylic Base": 2299
+
+        }
+
+    },
+
+
+    4: {
+
+        title: "Custom Keychain",
+
+        desc:
+            "Carry your favourite memories wherever you go.",
+
+        images: [
+            "image/product4.jpeg",
+            "image/product4-2.jpeg",
+            "image/product4-3.jpeg"
+        ],
+
+        options: {
+
+            Style: [
+                "Round Acrylic",
+                "Square Acrylic",
+                "Rectangle Acrylic",
+                "Heart Shape Acrylic",
+                "Double-Sided Acrylic",
+                "Tassel Acrylic"
+            ],
+
+            Thickness: [
+                "3 mm"
+            ]
+
+        },
+
+        prices: {
+
+            "Round Acrylic|3 mm": 299,
+            "Square Acrylic|3 mm": 299,
+            "Rectangle Acrylic|3 mm": 349,
+            "Heart Shape Acrylic|3 mm": 349,
+            "Double-Sided Acrylic|3 mm": 449,
+            "Tassel Acrylic|3 mm": 499
+
+        }
+
+    },
+
+
+    5: {
+
+        title: "Photo Magnet",
+
+        desc:
+            "Turn your favourite memories into beautiful fridge magnets.",
+
+        images: [
+            "image/product5.jpeg",
+            "image/product5-2.jpeg",
+            "image/product5-3.jpeg"
+        ],
+
+        options: {
+
+            Type: [
+                "Single",
+                "Set of 4",
+                "Set of 6",
+                "Set of 9"
+            ],
+
+            Shape: [
+                "Round",
+                "Square",
+                "Rectangle",
+                "Heart",
+                "Polaroid"
+            ]
+
+        },
+
+        prices: {
+
+            "Single|Round": 199,
+            "Single|Square": 199,
+            "Single|Rectangle": 199,
+            "Single|Heart": 199,
+            "Single|Polaroid": 199,
+
+            "Set of 4|Round": 699,
+            "Set of 4|Square": 699,
+            "Set of 4|Rectangle": 699,
+            "Set of 4|Heart": 699,
+            "Set of 4|Polaroid": 699,
+
+            "Set of 6|Round": 999,
+            "Set of 6|Square": 999,
+            "Set of 6|Rectangle": 999,
+            "Set of 6|Heart": 999,
+            "Set of 6|Polaroid": 999,
+
+            "Set of 9|Round": 1399,
+            "Set of 9|Square": 1399,
+            "Set of 9|Rectangle": 1399,
+            "Set of 9|Heart": 1399,
+            "Set of 9|Polaroid": 1399
+
+        }
+
+    },
+
+
+    6: {
+
+        title: "Wall Clock",
+
+        desc:
+            "Make every moment count with a personalized wall clock.",
+
+        images: [
+            "image/product6.jpeg",
+            "image/product6-2.jpeg",
+            "image/product6-3.jpeg"
+        ],
+
+        options: {
+
+            Size: [
+                "10 Inch",
+                "12 Inch",
+                "14 Inch",
+                "16 Inch"
+            ],
+
+            Material: [
+                "MDF",
+                "Wood Finish",
+                "Acrylic Finish"
+            ]
+
+        },
+
+        prices: {
+
+            "10 Inch|MDF": 899,
+            "10 Inch|Wood Finish": 999,
+            "10 Inch|Acrylic Finish": 1199,
+
+            "12 Inch|MDF": 1199,
+            "12 Inch|Wood Finish": 1299,
+            "12 Inch|Acrylic Finish": 1499,
+
+            "14 Inch|MDF": 1499,
+            "14 Inch|Wood Finish": 1699,
+            "14 Inch|Acrylic Finish": 1899,
+
+            "16 Inch|MDF": 1899,
+            "16 Inch|Wood Finish": 2099,
+            "16 Inch|Acrylic Finish": 2399
+
+        }
+
+    }
+
+};
+
+
+
+/* =========================
+   GET PRODUCT ID
+========================= */
+
+const params =
+    new URLSearchParams(window.location.search);
+
+
+const productId =
+    params.get("id") || "1";
+
+
+const product =
+    products[productId];
+
+
+
+/* =========================
+   DOM ELEMENTS
+========================= */
+
+const productTitle =
+    document.getElementById("productTitle");
+
+
+const productDesc =
+    document.getElementById("productDesc");
+
+
+const productPrice =
+    document.getElementById("productPrice");
+
+
+const mainImage =
+    document.getElementById("mainImage");
+
+
+const thumbnailRow =
+    document.getElementById("thumbnailRow");
+
+
+const sizeContainer =
+    document.getElementById("sizeContainer");
+
+
+const secondOptionContainer =
+    document.getElementById(
+        "secondOptionContainer"
+    );
+
+
+const quantityInput =
+    document.getElementById("quantity");
+
+
+const customTextInput =
+    document.getElementById("customText");
+
+
+const photoInput =
+    document.getElementById("productPhoto");
+const photoPreviewSection =
+    document.getElementById("photoPreviewSection");
+
+const photoPreviewImage =
+    document.getElementById("photoPreviewImage");
+
+const removePhotoBtn =
+    document.getElementById("removePhotoBtn");
+
+let currentPhotoUrl = null;
+
+const addToCartBtn =
+    document.getElementById("addToCartBtn");
+
+
+const whatsappBtn =
+    document.getElementById("whatsappBtn");
+
+
+const cartMessage =
+    document.getElementById("cartMessage");
+
+
+
+const cartCount =
+    document.getElementById("cart-count");
+
+
+
+
+/* =========================
+   INVALID PRODUCT
+========================= */
+
+if (!product) {
+
+    productTitle.innerText =
+        "Product Not Found";
+
+    productDesc.innerText =
+        "Sorry, this product does not exist.";
+
+    productPrice.innerText =
+        "";
+
+    addToCartBtn.disabled = true;
+
+    whatsappBtn.style.display =
+        "none";
+
+}
+
+
+
+/* =========================
+   LOAD PRODUCT
+========================= */
+
+else {
+
+    productTitle.innerText =
+        product.title;
+
+
+    productDesc.innerText =
+        product.desc;
+
+
+    mainImage.src =
+        product.images[0];
+
+
+    mainImage.alt =
+        product.title;
+
+
+
+    /* =========================
+       IMAGE GALLERY
+    ========================= */
+
+    product.images.forEach(
+        function(image) {
+
+            const thumbnail =
+                document.createElement("img");
+
+
+            thumbnail.src =
+                image;
+
+
+            thumbnail.alt =
+                product.title;
+
+
+            thumbnail.addEventListener(
+                "click",
+                function() {
+
+                    mainImage.src =
+                        image;
+
+                }
+            );
+
+
+            thumbnailRow.appendChild(
+                thumbnail
+            );
+
+        }
+    );
+
+
+
+    /* =========================
+       PRODUCT OPTIONS
+    ========================= */
+
+    const optionNames =
+        Object.keys(product.options);
+
+
+    const selected = {};
+
+
+
+    optionNames.forEach(
+        function(optionName, index) {
+
+            const container =
+                index === 0
+                    ? sizeContainer
+                    : secondOptionContainer;
+
+
+            container.innerHTML =
+                `<h3>${optionName}</h3>`;
+
+
+            product.options[optionName]
+                .forEach(
+                    function(value, valueIndex) {
+
+                        const button =
+                            document.createElement(
+                                "button"
+                            );
+
+
+                        button.type =
+                            "button";
+
+
+                        button.className =
+                            "option-btn";
+
+
+                        button.innerText =
+                            value;
+
+
+                        if (valueIndex === 0) {
+
+                            button.classList.add(
+                                "active"
+                            );
+
+                            selected[optionName] =
+                                value;
+
+                        }
+
+
+
+                        button.addEventListener(
+                            "click",
+                            function() {
+
+                                container
+                                    .querySelectorAll(
+                                        ".option-btn"
+                                    )
+                                    .forEach(
+                                        function(btn) {
+
+                                            btn.classList
+                                                .remove(
+                                                    "active"
+                                                );
+
+                                        }
+                                    );
+
+
+                                button.classList.add(
+                                    "active"
+                                );
+
+
+                                selected[optionName] =
+                                    value;
+
+
+                                updatePrice();
+
+                            }
+                        );
+
+
+                        container.appendChild(
+                            button
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+
+
+    /* =========================
+       GET CURRENT PRICE
+    ========================= */
+
+    function getCurrentPrice() {
+
+        const key =
+            optionNames
+                .map(
+                    name =>
+                        selected[name]
+                )
+                .join("|");
+
+
+        return product.prices[key] || 0;
+
+    }
+
+
+
+    /* =========================
+       FORMAT PRICE
+    ========================= */
+
+    function formatPrice(price) {
+
+        return "₹" +
+            price.toLocaleString("en-IN");
+
+    }
+
+
+
+    /* =========================
+       UPDATE PRICE
+    ========================= */
+
+    function updatePrice() {
+
+        const price =
+            getCurrentPrice();
+
+
+        productPrice.innerText =
+            formatPrice(price);
+
+
+        updateWhatsapp();
+
+    }
+
+
+
+    /* =========================
+       WHATSAPP MESSAGE
+    ========================= */
+
+    function updateWhatsapp() {
+
+        const quantity =
+            Math.max(
+                1,
+                Number(quantityInput.value) || 1
+            );
+
+
+        const customText =
+            customTextInput.value.trim();
+
+
+        const photoUploaded =
+            photoInput.files.length > 0;
+
+
+        let message =
+`Hi Bloomifyd 🌸
+
+I'd like to order:
+
+Product: ${product.title}
+
+`;
+
+
+
+        optionNames.forEach(
+            function(name) {
+
+                message +=
+                    `${name}: ${selected[name]}\n\n`;
+
+            }
+        );
+
+
+        message +=
+`Quantity: ${quantity}
+
+Custom Text: ${
+    customText || "None"
+}
+
+Photo: ${
+    photoUploaded
+        ? "Selected on website — customer will send original photo through WhatsApp"
+        : "Not selected — please confirm photo requirements"
+}
+
+Please confirm my order. 💖`;
+
+
+
+        whatsappBtn.href =
+            `https://wa.me/916376478530?text=${
+                encodeURIComponent(message)
+            }`;
+
+    }
+
+
+
+    /* =========================
+       ADD TO CART
+    ========================= */
+
+    addToCartBtn.addEventListener(
+        "click",
+        function() {
+
+            const quantity =
+                Math.max(
+                    1,
+                    Number(quantityInput.value) || 1
+                );
+
+
+            quantityInput.value =
+                quantity;
+
+
+            const customText =
+                customTextInput.value.trim();
+
+
+            const photoUploaded =
+                photoInput.files.length > 0;
+
+
+            const price =
+                getCurrentPrice();
+
+
+            const cartItem = {
+
+                id: productId,
+
+                product: product.title,
+
+                image: product.images[0],
+
+                price: price,
+
+                options: {
+                    ...selected
+                },
+
+                quantity: quantity,
+
+                customText: customText,
+
+                photoUploaded: photoUploaded
+
+            };
+
+
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "bloomifydCart"
+                    )
+                ) || [];
+
+
+
+            cart.push(cartItem);
+
+
+
+            localStorage.setItem(
+                "bloomifydCart",
+                JSON.stringify(cart)
+            );
+
+
+
+            updateCartCount();
+
+
+
+            cartMessage.innerText =
+                "✓ Added to cart successfully!";
+
+
+            setTimeout(
+                function() {
+
+                    cartMessage.innerText =
+                        "";
+
+                },
+                2500
+            );
+
+        }
+    );
+
+
+
+    /* =========================
+       QUANTITY EVENTS
+    ========================= */
+
+    quantityInput.addEventListener(
+        "input",
+        function() {
+
+            let quantity =
+                Number(quantityInput.value);
+
+
+            if (!quantity || quantity < 1) {
+
+                quantityInput.value = 1;
+
+            }
+
+
+            if (quantity > 20) {
+
+                quantityInput.value = 20;
+
+            }
+
+
+            updateWhatsapp();
+
+        }
+    );
+
+
+
+    /* =========================
+       CUSTOM TEXT EVENT
+    ========================= */
+
+    customTextInput.addEventListener(
+        "input",
+        updateWhatsapp
+    );
+
+
+
+    /* =========================
+       PHOTO EVENT
+    ========================= */
+
+    // photoInput.addEventListener(
+    //     "change",
+    //     function() {
+
+    //         if (photoInput.files.length > 0) {
+
+    //             cartMessage.innerText =
+    //                 "✓ Photo selected successfully.";
+
+    //         } else {
+
+    //             cartMessage.innerText =
+    //                 "";
+
+    //         }
+
+
+    //         updateWhatsapp();
+
+    //     }
+    // );
+
+/* PHOTO PREVIEW */
+
+
+/* =========================
+   PHOTO PREVIEW ANIMATION
+========================= */
+
+photoInput.addEventListener("change", function () {
+    const file = photoInput.files[0];
+
+    if (!file) {
+        clearPhotoPreview();
+        updateWhatsapp();
+        return;
+    }
+
+    const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+        clearPhotoPreview();
+        cartMessage.innerText =
+            "Please choose a JPG, PNG, or WebP image.";
+        updateWhatsapp();
+        return;
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+        clearPhotoPreview();
+        cartMessage.innerText =
+            "Please choose an image smaller than 10 MB.";
+        updateWhatsapp();
+        return;
+    }
+
+    if (currentPhotoUrl) {
+        URL.revokeObjectURL(currentPhotoUrl);
+        currentPhotoUrl = null;
+    }
+
+    currentPhotoUrl = URL.createObjectURL(file);
+
+    photoPreviewImage.onload = function () {
+        photoPreviewSection.hidden = false;
+
+        // Restart the entrance animation whenever a new
+        // photo is selected.
+        const frame = photoPreviewSection.querySelector(
+            ".preview-frame"
+        );
+
+        frame.classList.remove("photo-reveal");
+
+        void frame.offsetWidth;
+
+        frame.classList.add("photo-reveal");
+
+        cartMessage.innerText =
+            "✨ Your photo is ready for its preview!";
+
+        updateWhatsapp();
+    };
+
+    photoPreviewImage.onerror = function () {
+        clearPhotoPreview();
+
+        cartMessage.innerText =
+            "We couldn't display that photo. Please try another.";
+
+        updateWhatsapp();
+    };
+
+    photoPreviewImage.src = currentPhotoUrl;
+});
+
+
+function clearPhotoPreview() {
+    photoPreviewSection.hidden = true;
+
+    photoPreviewImage.onload = null;
+    photoPreviewImage.onerror = null;
+    photoPreviewImage.removeAttribute("src");
+
+    if (currentPhotoUrl) {
+        URL.revokeObjectURL(currentPhotoUrl);
+        currentPhotoUrl = null;
+    }
+
+    photoInput.value = "";
+}
+
+
+removePhotoBtn.addEventListener("click", function () {
+    clearPhotoPreview();
+
+    cartMessage.innerText =
+        "Photo removed. Choose another photo whenever you're ready.";
+
+    updateWhatsapp();
+});
+
+
+
+    /* =========================
+       CART COUNT
+    ========================= */
+
+    function updateCartCount() {
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "bloomifydCart"
+                )
+            ) || [];
+
+
+        const totalItems =
+            cart.reduce(
+                function(total, item) {
+
+                    return total +
+                        (Number(item.quantity) || 1);
+
+                },
+                0
+            );
+
+
+        if (cartCount) {
+
+            cartCount.innerText =
+                totalItems;
+
+        }
+
+    }
+
+
+
+    /* =========================
+       MOBILE NAVIGATION
+    ========================= */
+
+    const menuToggle =
+        document.getElementById(
+            "menu-toggle"
+        );
+
+
+    const navLinks =
+        document.getElementById(
+            "nav-links"
+        );
+
+
+    if (menuToggle && navLinks) {
+
+        menuToggle.addEventListener(
+            "click",
+            function() {
+
+                navLinks.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =========================
+       INITIALIZE
+    ========================= */
+
+    updatePrice();
+
+    updateCartCount();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

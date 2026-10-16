@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bloomifyd | Shopping Cart</title>
+
+<link rel="icon" href="image/favicon.png">
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   CART PAGE
+========================= */
+
+.cart-page {
+
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 25px;
+
+}
+
+.cart-heading {
+
+    text-align: center;
+    margin-bottom: 45px;
+
+}
+
+.cart-heading h1 {
+
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    margin-bottom: 10px;
+
+}
+
+.cart-heading p {
+
+    color: #777;
+    font-size: 15px;
+
+}
+
+
+/* CART ITEM */
+
+.cart-item {
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    background: #fff;
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+
+}
+
+
+/* IMAGE */
+
+.cart-image {
+
+    width: 150px;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+}
+
+
+/* INFO */
+
+.cart-info {
+
+    flex: 1;
+
+}
+
+.cart-info h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+
+}
+
+.cart-option {
+
+    font-size: 14px;
+
+    color: #666;
+
+    margin: 5px 0;
+
+}
+
+
+/* PRICE */
+
+.cart-price {
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    margin-top: 12px;
+
+}
+
+
+/* QUANTITY */
+
+.quantity-control {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 15px;
+
+}
+
+.quantity-control button {
+
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid #ddd;
+
+    background: #fff;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+}
+
+.quantity-control span {
+
+    font-weight: 600;
+
+}
+
+
+/* REMOVE */
+
+.remove-btn {
+
+    border: none;
+
+    background: transparent;
+
+    color: #b85c6f;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    margin-top: 15px;
+
+}
+
+
+/* CART SUMMARY */
+
+.cart-summary {
+
+    margin-top: 40px;
+
+    padding: 30px;
+
+    background: #fff7fa;
+
+    border-radius: 20px;
+
+    text-align: right;
+
+}
+
+.cart-summary h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+
+}
+
+.cart-total {
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* BUTTONS */
+
+.cart-buttons {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+.cart-btn {
+
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    border: none;
+
+}
+
+.continue-btn {
+
+    background: #fff;
+
+    color: #9b4d68;
+
+    border: 1px solid #d9a5b8;
+
+}
+
+.checkout-btn {
+
+    background: #b85c7a;
+
+    color: white;
+
+}
+
+
+/* EMPTY CART */
+
+.empty-cart {
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+}
+
+.empty-cart h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+
+}
+
+.empty-cart p {
+
+    color: #777;
+
+    margin: 15px 0 25px;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .cart-heading h1 {
+
+        font-size: 32px;
+
+    }
+
+    .cart-item {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .cart-image {
+
+        width: 100%;
+
+        height: 230px;
+
+    }
+
+    .cart-summary {
+
+        text-align: center;
+
+    }
+
+    .cart-buttons {
+
+        justify-content: center;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+    <a href="index.html" class="logo">
+        <img src="image/logo.png" alt="Bloomifyd Logo">
+        Bloomifyd
+    </a>
+
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+            <a href="cart.html" class="cart-link">
+                🛒 Cart <span id="cart-count">0</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+
+<!-- CART -->
+
+<section class="cart-page">
+
+
+<div class="cart-heading">
+
+<h1>Your Shopping Cart 🛍️</h1>
+
+<p>Your favourite Bloomifyd creations are waiting for you.</p>
+
+</div>
+
+
+<div id="cartContainer"></div>
+
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-logo">
+Bloomifyd
+</div>
+
+<p>
+Personalized Gifts • Made With Love
+</p>
+
+<div class="footer-links">
+
+<a href="https://instagram.com/bloomifyd">
+Instagram
+</a>
+
+<a href="https://wa.me/916376478530">
+WhatsApp
+</a>
+
+<a href="mailto:info@bloomifyd.com">
+Email
+</a>
+
+</div>
+
+<p class="copyright">
+
+© 2026 Bloomifyd. All Rights Reserved.
+
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   LOAD CART
+========================= */
+
+let cart = getCart();
+
+const cartContainer =
+document.getElementById("cartContainer");
+
+
+
+/* =========================
+   GET CART FROM STORAGE
+========================= */
+
+function getCart() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem("bloomifydCart")
+        ) || [];
+
+    } catch (error) {
+
+        console.error(
+            "Unable to read cart:",
+            error
+        );
+
+        return [];
+
+    }
+
+}
+
+
+
+/* =========================
+   SAVE CART
+========================= */
+
+function saveCart() {
+
+    localStorage.setItem(
+        "bloomifydCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+
+/* =========================
+   FORMAT PRICE
+========================= */
+
+function formatPrice(price) {
+
+    return `₹${Number(price).toLocaleString("en-IN")}`;
+
+}
+
+
+
+/* =========================
+   DISPLAY CART
+========================= */
+
+function displayCart() {
+
+    if (cart.length === 0) {
+
+        cartContainer.innerHTML = `
+
+        <div class="empty-cart">
+
+            <h2>Your cart is empty 🛒</h2>
+
+            <p>
+            Add some beautiful memories to your cart.
+            </p>
+
+            <a
+            href="products.html"
+            class="cart-btn checkout-btn">
+
+            Continue Shopping →
+
+            </a>
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =========================
+       CREATE CART ITEMS
+    ========================= */
+
+    const cartItemsHTML = cart.map(
+        (item, index) => {
+
+            const price =
+                Number(item.price) || 0;
+
+            const quantity =
+                Math.max(
+                    1,
+                    Number(item.quantity) || 1
+                );
+
+            const itemTotal =
+                price * quantity;
+
+
+            /* OPTIONS */
+
+            const optionsHTML =
+                Object.entries(item.options || {})
+                .map(
+                    ([option, value]) => `
+
+                    <div class="cart-option">
+
+                        <strong>${option}:</strong>
+                        ${value}
+
+                    </div>
+
+                    `
+                )
+                .join("");
+
+
+            return `
+
+            <div class="cart-item">
+
+                <img
+                src="${item.image}"
+                class="cart-image"
+                alt="${item.product}">
+
+
+                <div class="cart-info">
+
+                    <h2>
+                    ${item.product}
+                    </h2>
+
+
+                    ${optionsHTML}
+
+
+                    ${
+                        item.customText
+                        ? `
+
+                        <div class="cart-option">
+
+                            <strong>
+                                Custom Text:
+                            </strong>
+
+                            ${item.customText}
+
+                        </div>
+
+                        `
+                        : ""
+                    }
+
+
+                    <div class="cart-option">
+
+                        <strong>
+                            Photo:
+                        </strong>
+
+                        ${
+                            item.photoUploaded
+                            ? "📸 Uploaded"
+                            : "Not uploaded"
+                        }
+
+                    </div>
+
+
+                    <div class="cart-price">
+
+                        ${formatPrice(itemTotal)}
+
+                    </div>
+
+
+                    <div class="quantity-control">
+
+                        <button
+                        type="button"
+                        data-index="${index}"
+                        data-action="decrease">
+
+                        −
+
+                        </button>
+
+
+                        <span>
+                        ${quantity}
+                        </span>
+
+
+                        <button
+                        type="button"
+                        data-index="${index}"
+                        data-action="increase">
+
+                        +
+
+                        </button>
+
+                    </div>
+
+
+                    <button
+                    type="button"
+                    class="remove-btn"
+                    data-index="${index}"
+                    data-action="remove">
+
+                    Remove item
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        }
+    ).join("");
+
+
+
+    /* =========================
+       CALCULATE TOTAL
+    ========================= */
+
+    const total = cart.reduce(
+        (sum, item) => {
+
+            const price =
+                Number(item.price) || 0;
+
+            const quantity =
+                Math.max(
+                    1,
+                    Number(item.quantity) || 1
+                );
+
+            return sum +
+                price * quantity;
+
+        },
+        0
+    );
+
+
+
+    /* =========================
+       RENDER EVERYTHING
+    ========================= */
+
+    cartContainer.innerHTML = `
+
+        ${cartItemsHTML}
+
+
+        <div class="cart-summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+            <div class="cart-total">
+
+                Total:
+                ${formatPrice(total)}
+
+            </div>
+
+
+            <div class="cart-buttons">
+
+                <a
+                href="products.html"
+                class="cart-btn continue-btn">
+
+                ← Continue Shopping
+
+                </a>
+
+
+                <a
+                href="checkout.html"
+                class="cart-btn checkout-btn">
+
+                Proceed to Checkout →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =========================
+   EVENT DELEGATION
+========================= */
+
+cartContainer.addEventListener(
+    "click",
+    function(event) {
+
+        const button =
+            event.target.closest(
+                "[data-action]"
+            );
+
+
+        if (!button) {
+
+            return;
+
+        }
+
+
+        const index =
+            Number(button.dataset.index);
+
+
+        const action =
+            button.dataset.action;
+
+
+
+        if (action === "increase") {
+
+            changeQuantity(index, 1);
+
+        }
+
+
+        else if (action === "decrease") {
+
+            changeQuantity(index, -1);
+
+        }
+
+
+        else if (action === "remove") {
+
+            removeItem(index);
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   CHANGE QUANTITY
+========================= */
+
+function changeQuantity(index, change) {
+
+    const item = cart[index];
+
+
+    if (!item) {
+
+        return;
+
+    }
+
+
+    const currentQuantity =
+        Number(item.quantity) || 1;
+
+
+    const newQuantity =
+        currentQuantity + change;
+
+
+    /* Minimum = 1 */
+
+    if (newQuantity < 1) {
+
+        return;
+
+    }
+
+
+    /* Maximum = 20 */
+
+    if (newQuantity > 20) {
+
+        return;
+
+    }
+
+
+    item.quantity =
+        newQuantity;
+
+
+    saveCart();
+
+    displayCart();
+
+}
+
+
+
+/* =========================
+   REMOVE ITEM
+========================= */
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    saveCart();
+
+    displayCart();
+
+}
+
+
+
+/* =========================
+   START
+========================= */
+
+displayCart();
+console.log("Cart items loaded:", cart);
+console.log("Cart container found:", !!cartContainer);
+console.log("Cart item count:", cart.length);
+
+
+
+
+function updateCartCount() {
+    try {
+        const cart = JSON.parse(
+            localStorage.getItem("bloomifydCart") || "[]"
+        );
+
+        const totalItems = cart.reduce(
+            (total, item) =>
+                total + (Number(item.quantity) || 1),
+            0
+        );
+
+        document.querySelectorAll("#cart-count").forEach(element => {
+            element.textContent = totalItems;
+        });
+    } catch (error) {
+        console.error("Error reading cart:", error);
+    }
+}
+
+updateCartCount();
+
+
+
+
+</script>
+
+
+</body>
+
+</html>

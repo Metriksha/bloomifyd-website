@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+content="Personalized acrylic photo frames, Spotify plaques, LED frames and custom gifts crafted with love by Bloomifyd.">
+<title>Contact Us | Bloomifyd</title>
+<link rel="icon" type="image/png" href="image/favicon.png">
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+<nav>
+    <a href="index.html" class="logo">
+        <img src="image/logo.png" alt="Bloomifyd Logo">
+        Bloomifyd
+    </a>
+
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+    <a href="cart.html" class="cart-link">
+        🛒 Cart <span id="cart-count">0</span>
+    </a>
+</li>
+    </ul>
+</nav>
+
+<section class="contact-page">
+
+    <h1>Get In Touch</h1>
+
+    <p>
+        <p>
+Have a question, custom design idea, or special gift request?
+Send us a message and we'll help bring it to life.
+</p>
+    </p>
+
+    <div class="contact-grid">
+
+        
+
+        <div class="contact-card">
+            <div class="contact-icon">📷</div>
+            <h3>Instagram</h3>
+            <p>Follow our latest creations and customer stories.</p>
+
+            <a href="https://instagram.com/bloomifyd" target="_blank">
+                @bloomifyd
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Email</h3>
+            <p>For collaborations and business inquiries.</p>
+
+            <a href="mailto:info@bloomifyd.com">
+                info@bloomifyd.com
+            </a>
+        </div>
+
+    </div>
+    <div class="contact-form">
+
+    <h2>Send An Inquiry</h2>
+
+    <input
+        type="text"
+        id="name"
+        placeholder="Your Name"
+    >
+
+    <input
+        type="text"
+        id="phone"
+        placeholder="Phone Number"
+    >
+
+    <textarea
+        id="message"
+        placeholder="Tell us what you'd like to create..."
+    ></textarea>
+
+    <button onclick="sendWhatsApp()">
+        Send on WhatsApp
+    </button>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+    <div class="footer-logo">
+        Bloomifyd
+    </div>
+
+    <p>
+        Personalized Gifts • Made With Love
+    </p>
+
+    <div class="footer-links">
+        <a href="https://instagram.com/bloomifyd">
+                 Instagram
+        </a>
+        <a href="https://wa.me/916376478530">
+                WhatsApp
+        </a>
+
+       <a href="mailto:info@bloomifyd.com">
+                Email
+        </a>
+    </div>
+
+    <p class="copyright">
+        © 2026 Bloomifyd. All Rights Reserved.
+    </p>
+
+</footer>
+
+<a href="https://wa.me/916376478530"
+class="whatsapp-float"
+target="_blank">
+
+💬 Chat With Us
+
+</a>
+<script>
+
+function sendWhatsApp(){
+
+const name =
+document.getElementById("name").value;
+
+const phone =
+document.getElementById("phone").value;
+
+const message =
+document.getElementById("message").value;
+
+const text =
+`Hi Bloomifyd,
+
+Name: ${name}
+Phone: ${phone}
+
+Message:
+${message}`;
+
+window.open(
+`https://wa.me/6376478530?text=${encodeURIComponent(text)}`,
+"_blank"
+);
+
+}
+function updateCartCount() {
+    try {
+        const cart = JSON.parse(
+            localStorage.getItem("bloomifydCart") || "[]"
+        );
+
+        const totalItems = cart.reduce(
+            (total, item) =>
+                total + (Number(item.quantity) || 1),
+            0
+        );
+
+        document.querySelectorAll("#cart-count").forEach(element => {
+            element.textContent = totalItems;
+        });
+    } catch (error) {
+        console.error("Error reading cart:", error);
+    }
+}
+
+updateCartCount();
+</script>
+</body>
+</html>
